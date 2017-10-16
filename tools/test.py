@@ -1427,6 +1427,9 @@ def BuildOptions():
   result.add_option('--abort-on-timeout',
       help='Send SIGABRT instead of SIGTERM to kill processes that time out',
       default=False, action="store_true", dest="abort_on_timeout")
+  result.add_option("--type",
+      help="Specifies the environment type the tests will run on, for example 'fips'",
+      default="default")
   return result
 
 
@@ -1642,6 +1645,7 @@ def Main():
   all_unused = [ ]
   unclassified_tests = [ ]
   globally_unused_rules = None
+  env_type = options.type
   for path in paths:
     for arch in options.arch:
       for mode in options.mode:
@@ -1659,6 +1663,7 @@ def Main():
           'mode': mode,
           'system': utils.GuessOS(),
           'arch': vmArch,
+          'type': env_type,
         }
         test_list = root.ListTests([], path, context, arch, mode)
         unclassified_tests += test_list
