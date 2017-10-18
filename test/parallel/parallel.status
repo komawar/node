@@ -19,3 +19,5 @@ test-npm-install:      PASS,FLAKY
 
 [$system==freebsd]
 
+[$type==fips]
+test-zlib-zero-byte:   FAIL,FLAKY
