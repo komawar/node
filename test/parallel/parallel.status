@@ -20,3 +20,8 @@ test-npm-install:      PASS,FLAKY
 [$system==freebsd]
 
 [$system==aix]
+
+# Sample test (test-negative-on-fips) has been added to check the
+# skip-on-fips feature (issue 14746)
+[$type==fips]
+test-negative-on-fips: PASS,FLAKY
