@@ -135,6 +135,15 @@ $ make test
 At this point you are ready to make code changes and re-run the tests!
 Optionally, continue below.
 
+If you wish to run tests on specific systems, say ``fips``:
+
+```console
+$ make test-on-fips
+```
+
+This particular command will mark the tests specified in the \*.status files as
+flaky.
+
 To run the tests and generate code coverage reports:
 
 ```console
