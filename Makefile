@@ -505,6 +505,9 @@ test-v8 test-v8-intl test-v8-benchmarks test-v8-all:
 		"$ git clone https://github.com/nodejs/node.git"
 endif
 
+test-on-fips:
+	$(PYTHON) tools/test.py --type=fips
+
 # Google Analytics ID used for tracking API docs page views, empty
 # DOCS_ANALYTICS means no tracking scripts will be included in the
 # generated .html files
